@@ -1,0 +1,10 @@
+.note-box {
+  padding: 12px 16px;
+  margin: 20px 0;
+  border-radius: 6px;
+  border-left: 4px solid;
+}
+.note-box p:last-child { margin-bottom: 0; }
+.note-info    { border-color: #3b82f6; background: rgba(59,130,246,.08); }
+.note-warning { border-color: #f59e0b; background: rgba(245,158,11,.08); }
+.note-danger  { border-color: #ef4444; background: rgba(239,68,68,.08); }

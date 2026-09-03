@@ -1,5 +1,5 @@
 baseURL: "https://bugrasahinoglu.com/"
-languageCode: "tr-tr"
+languageCode: "en-us"
 title: "Mehmet Buğra Şahinoğlu"
 theme: "PaperMod"
 
@@ -38,5 +38,13 @@ menu:
 markup:
   highlight:
     style: github-dark
-    lineNos: true
+    lineNos: false
     noClasses: false
+    guessSyntax: true
+    tabWidth: 2
+  goldmark:
+    renderer:
+      unsafe: true
+  tableOfContents:
+    startLevel: 2
+    endLevel: 4

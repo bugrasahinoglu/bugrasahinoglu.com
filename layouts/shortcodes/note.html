@@ -1,0 +1,4 @@
+<div class="note-box note-{{ .Get "type" | default "info" }}">
+  {{ with .Get "title" }}<strong>{{ . }}</strong>{{ end }}
+  {{ .Inner | markdownify }}
+</div>
