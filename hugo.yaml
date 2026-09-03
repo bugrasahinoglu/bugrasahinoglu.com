@@ -1,0 +1,42 @@
+baseURL: "https://bugrasahinoglu.com/"
+languageCode: "tr-tr"
+title: "Mehmet Buğra Şahinoğlu"
+theme: "PaperMod"
+
+params:
+  defaultTheme: auto
+  ShowReadingTime: true
+  ShowCodeCopyButtons: true
+  ShowBreadCrumbs: true
+  ShowPostNavLinks: true
+  profileMode:
+    enabled: true
+    title: "Mehmet Buğra Şahinoğlu"
+    subtitle: "Siber güvenlik"
+    buttons:
+      - name: Yazılar
+        url: posts
+  socialIcons:
+    - name: github
+      url: "https://github.com/bugrasahinoglu"
+    - name: linkedin
+      url: "https://linkedin.com/in/mehmetbugrasahinoglu"
+    - name: email
+      url: "mailto:contact@bugrasahinoglu.com"
+
+menu:
+  main:
+    - identifier: posts
+      name: Yazılar
+      url: /posts/
+      weight: 10
+    - identifier: about
+      name: Hakkımda
+      url: /about/
+      weight: 20
+
+markup:
+  highlight:
+    style: github-dark
+    lineNos: true
+    noClasses: false
