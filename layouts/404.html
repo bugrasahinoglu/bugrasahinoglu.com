@@ -1,0 +1,10 @@
+{{- define "main" }}
+<div class="nf-page">
+  <h1 class="nf-code">404</h1>
+  <p class="nf-text">This page does not exist, or it moved.</p>
+  <p class="nf-text">
+    <a href="{{ "" | absLangURL }}">Back to the index</a> ·
+    <a href="{{ "posts/" | absLangURL }}">All posts</a>
+  </p>
+</div>
+{{- end }}

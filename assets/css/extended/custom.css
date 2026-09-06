@@ -1,3 +1,41 @@
+/* ---- Brand ---- */
+:root,
+.dark {
+  --accent: #4db8a8;
+}
+
+/* ---- Links ---- */
+.post-content a,
+.post-content a:visited {
+  box-shadow: 0 1px 0 var(--accent);
+  text-decoration: none;
+}
+.post-content a:hover {
+  background: rgba(77, 184, 168, .12);
+}
+
+/* ---- Inline code ---- */
+.post-content code {
+  color: var(--accent);
+  background: rgba(77, 184, 168, .08);
+}
+
+/* ---- Tags ---- */
+.post-tags a {
+  border-color: var(--accent);
+}
+.post-tags a:hover {
+  background: var(--accent);
+  color: var(--theme);
+  border-color: var(--accent);
+}
+
+/* ---- Profile buttons ---- */
+.buttons .button {
+  border-color: var(--accent);
+}
+
+/* ---- Note boxes ---- */
 .note-box {
   padding: 12px 16px;
   margin: 20px 0;
@@ -5,6 +43,26 @@
   border-left: 4px solid;
 }
 .note-box p:last-child { margin-bottom: 0; }
-.note-info    { border-color: #3b82f6; background: rgba(59,130,246,.08); }
-.note-warning { border-color: #f59e0b; background: rgba(245,158,11,.08); }
-.note-danger  { border-color: #ef4444; background: rgba(239,68,68,.08); }
+
+.note-info    { border-color: var(--accent); background: rgba(77, 184, 168, .08); }
+.note-warning { border-color: #f59e0b;       background: rgba(245, 158, 11, .08); }
+.note-danger  { border-color: #ef4444;       background: rgba(239, 68, 68, .08); }
+
+/* ---- 404 ---- */
+.nf-page {
+  text-align: center;
+  padding: 120px 20px;
+}
+.nf-code {
+  font-size: 5rem !important;
+  line-height: 1;
+  font-family: monospace;
+  color: var(--accent);
+  margin: 0 0 16px;
+}
+.nf-text {
+  font-size: 1rem !important;
+  line-height: 1.6;
+  color: var(--secondary);
+  margin: 4px 0;
+}
