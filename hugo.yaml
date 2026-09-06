@@ -12,9 +12,9 @@ params:
   profileMode:
     enabled: true
     title: "Mehmet Buğra Şahinoğlu"
-    subtitle: "Siber güvenlik"
+    subtitle: "Cybersecurity"
     buttons:
-      - name: Yazılar
+      - name: Posts
         url: posts
   socialIcons:
     - name: github
@@ -27,13 +27,21 @@ params:
 menu:
   main:
     - identifier: posts
-      name: Yazılar
+      name: Posts
       url: /posts/
       weight: 10
+    - identifier: categories
+      name: Categories
+      url: /categories/
+      weight: 15
     - identifier: about
-      name: Hakkımda
+      name: About
       url: /about/
       weight: 20
+    - identifier: tags
+      name: Tags
+      url: /tags/
+      weight: 25
 
 markup:
   highlight:
