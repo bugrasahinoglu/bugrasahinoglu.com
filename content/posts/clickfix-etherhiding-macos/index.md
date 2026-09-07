@@ -281,7 +281,7 @@ timestamped, permanent transaction visible to anyone. Every read a defender make
 and leaves no trace at all. The operator pays, in public, for a capability that costs us
 nothing to observe.
 
-*Scripts for both operations: [github.com/bugrasahinoglu](https://github.com/bugrasahinoglu)*
+*Scripts for both operations: [github.com/bugrasahinoglu/etherhiding-tools](https://github.com/bugrasahinoglu/etherhiding-tools)*
 
 ---
 
