@@ -2,7 +2,7 @@
 title: "A Fourth Door: Compromised Legitimate Sites in the Polygon EtherHiding macOS Campaign"
 date: 2026-09-07T15:00:00+03:00
 draft: false
-description: "A macOS ClickFix campaign resolving its C2 through a Polygon smart contract, delivered through a compromised legitimate site — with the full on-chain rotation history and what the infrastructure costs to run."
+description: "A macOS ClickFix campaign resolving its C2 through a Polygon smart contract, delivered through a compromised legitimate site with the full on-chain rotation history and what the infrastructure costs to run."
 tags: ["macOS", "ClickFix", "EtherHiding", "Polygon", "threat-intelligence", "incident-response", "DFIR"]
 categories: ["Threat Research"]
 ShowToc: true
@@ -612,7 +612,7 @@ the one in use today, and the arithmetic on what it costs to run.
 
 ---
 
-**Mehmet Buğra Şahinoğlu** - senior cybersecurity analyst · mehmet@bugrasahinoglu.com
+**Mehmet Buğra Şahinoğlu** · Senior Cybersecurity Analyst · mehmet@bugrasahinoglu.com
 
 *The views and analysis here are my own. All on-chain data in this article is publicly
 verifiable; tooling is linked above.*
