@@ -10,7 +10,7 @@ TocOpen: false
 ShowReadingTime: true
 ShowBreadCrumbs: true
 cover:
-  image: "c2_lifespan_chart.png"
+  image: "social-cover.png"
   alt: "Bar chart of C2 domain lifespans, May to September 2026"
   caption: "Every domain this campaign has used, and how long each lasted"
   relative: true
