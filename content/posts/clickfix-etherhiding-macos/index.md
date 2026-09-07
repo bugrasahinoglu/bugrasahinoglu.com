@@ -1,4 +1,21 @@
-# A Fourth Door: Compromised Legitimate Sites in the Polygon EtherHiding macOS Campaign
+---
+title: "A Fourth Door: Compromised Legitimate Sites in the Polygon EtherHiding macOS Campaign"
+date: 2026-09-07T15:00:00+03:00
+draft: false
+description: "A macOS ClickFix campaign resolving its C2 through a Polygon smart contract, delivered through a compromised legitimate site — with the full on-chain rotation history and what the infrastructure costs to run."
+tags: ["macOS", "ClickFix", "EtherHiding", "Polygon", "threat-intelligence", "incident-response", "DFIR"]
+categories: ["Threat Research"]
+ShowToc: true
+TocOpen: false
+ShowReadingTime: true
+ShowBreadCrumbs: true
+cover:
+  image: "c2_lifespan_chart.png"
+  alt: "Bar chart of C2 domain lifespans, May to September 2026"
+  caption: "Every domain this campaign has used, and how long each lasted"
+  relative: true
+  hiddenInSingle: true
+---
 
 ## 1. What this adds
 
