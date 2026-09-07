@@ -11,8 +11,7 @@ ShowReadingTime: true
 ShowBreadCrumbs: true
 cover:
   image: "social-cover.png"
-  alt: "Bar chart of C2 domain lifespans, May to September 2026"
-  caption: "Every domain this campaign has used, and how long each lasted"
+  alt: "Three dollars buys four months of takedown-proof C2 infrastructure"
   relative: true
   hiddenInSingle: true
 ---
