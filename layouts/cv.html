@@ -1,0 +1,98 @@
+{{- define "main" }}
+{{- $cv := site.Data.cv }}
+
+<article class="post-single cv">
+  <header class="post-header">
+    <h1 class="post-title">{{ $cv.name }}</h1>
+    <div class="cv-headline">{{ $cv.headline }}</div>
+    <div class="cv-focus">{{ $cv.focus }}</div>
+  </header>
+
+  <div class="cv-card">
+    <ul class="cv-facts">
+      <li>{{ $cv.location }}</li>
+      <li>{{ $cv.availability }}</li>
+      <li class="cv-links">
+        {{- range $i, $l := $cv.links }}{{ if $i }} · {{ end }}<a href="{{ $l.url }}">{{ $l.name }}</a>{{ end }}
+      </li>
+    </ul>
+    <a class="cv-download" href="{{ $cv.pdf }}" download="Mehmet_Bugra_Sahinoglu_CV.pdf">Download PDF</a>
+  </div>
+
+  <div class="post-content cv-body">
+    <h2 id="experience">Experience</h2>
+    <div class="cv-timeline">
+      {{- range $cv.experience }}
+      <section class="cv-job">
+        <div class="cv-row">
+          <h3>{{ .company }}</h3>
+          <span class="cv-period">{{ .period }}</span>
+        </div>
+        <div class="cv-context">{{ .context }}</div>
+        <ul class="cv-roles">
+          {{- range .roles }}
+          <li><strong>{{ .title }}</strong><span class="cv-period">{{ .period }}</span></li>
+          {{- end }}
+        </ul>
+        <ul class="cv-highlights">
+          {{- range .highlights }}
+          <li>{{ . }}</li>
+          {{- end }}
+        </ul>
+      </section>
+      {{- end }}
+    </div>
+
+    <h2 id="publications">Publications and open source</h2>
+    {{- range $cv.publications }}
+    <div class="cv-pub">
+      <div class="cv-row">
+        <a href="{{ .url }}">{{ .title }}</a>
+        <span class="cv-period">{{ .date }}</span>
+      </div>
+      <p>{{ .summary }}</p>
+    </div>
+    {{- end }}
+
+    <h2 id="certifications">Certifications</h2>
+    <div class="cv-certs">
+      {{- range $cv.certifications }}
+      <div class="cv-cert">
+        <div class="cv-cert-code">{{ .code }}</div>
+        <div class="cv-cert-name">{{ .name }}</div>
+        <div class="cv-cert-meta">{{ .issuer }} · {{ .year }}</div>
+        <a class="cv-verify" href="{{ .url }}" rel="noopener">Verify credential →</a>
+      </div>
+      {{- end }}
+    </div>
+
+    <h2 id="skills">Skills</h2>
+    {{- range $cv.skills }}
+    <div class="cv-skill-group">
+      <div class="cv-skill-label">{{ .group }}</div>
+      <ul class="cv-chips">
+        {{- range .items }}
+        <li>{{ . }}</li>
+        {{- end }}
+      </ul>
+    </div>
+    {{- end }}
+
+    <h2 id="education">Education</h2>
+    {{- range $cv.education }}
+    <div class="cv-row">
+      <span><strong>{{ .school }}</strong> · {{ .degree }}</span>
+      <span class="cv-period">{{ .period }}</span>
+    </div>
+    {{- end }}
+
+    <h2 id="languages">Languages</h2>
+    <ul class="cv-langs">
+      {{- range $cv.languages }}
+      <li><strong>{{ .name }}</strong> {{ .level }}</li>
+      {{- end }}
+    </ul>
+  </div>
+</article>
+
+{{- end }}{{/* end main */}}

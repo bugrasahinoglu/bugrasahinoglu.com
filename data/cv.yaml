@@ -1,0 +1,97 @@
+name: "Mehmet Buğra Şahinoğlu"
+headline: "Senior Cybersecurity Analyst"
+focus: "Incident response · Digital forensics · Threat hunting · Detection engineering"
+location: "Istanbul, Türkiye"
+availability: "Open to relocation or remote work · Visa sponsorship required"
+pdf: "/cv.pdf"
+
+links:
+  - name: "mehmet@bugrasahinoglu.com"
+    url: "mailto:mehmet@bugrasahinoglu.com"
+  - name: "GitHub"
+    url: "https://github.com/bugrasahinoglu"
+  - name: "LinkedIn"
+    url: "https://linkedin.com/in/mehmetbugrasahinoglu"
+
+experience:
+  - company: "Kuveyt Türk Participation Bank"
+    context: "Regulated bank, 10,000+ endpoints"
+    period: "2022 – Present"
+    roles:
+      - title: "Senior Cybersecurity Analyst"
+        period: "Jun 2024 – Present"
+      - title: "Cybersecurity Analyst"
+        period: "Jun 2022 – Jun 2024"
+    highlights:
+      - "Investigated memory, disk and network artefacts to uncover activity and misconfigurations missed by existing detections, coordinating remediation with security and system-owner teams"
+      - "Managed threat intelligence and attack surface management from vendor evaluation to daily operations, completing 4 proof-of-concept cycles across these areas and digital forensics"
+      - "Designed and facilitated 4 incident response tabletop exercises in 2025–2026, including a macOS scenario for subsidiary IT teams, documenting detection gaps and procedural improvements"
+      - "Triaged 800–1,750 assigned alerts monthly and investigated high-severity incidents through closure"
+      - "Mentored new analysts to independently triage and investigate alerts using response playbooks"
+  - company: "Logsign"
+    context: "SIEM/SOAR vendor and managed SOC"
+    period: "2020 – 2022"
+    roles:
+      - title: "SOC Tier 2 Analyst"
+        period: "Jun 2021 – May 2022"
+      - title: "SOC Tier 1 Analyst and Shift Team Leader"
+        period: "Jan 2021 – Jun 2021"
+      - title: "SOC Tier 1 Analyst"
+        period: "Feb 2020 – Jan 2021"
+    highlights:
+      - "Co-led detection tuning that cut daily alerts by approximately 90% (60,000 to 5,000–6,000) for an enterprise customer through duplicate suppression and correlation threshold refinement, maintaining detection coverage"
+      - "Led 3–4 analysts and handled L2 escalations for 4 round-the-clock shift teams serving approximately 20 enterprise tenants, managing schedules, workloads and analysis quality"
+      - "Built response playbooks by alert type and standardised customer notification templates across the SOC"
+
+publications:
+  - title: "A Fourth Door: Compromised Legitimate Sites in the Polygon EtherHiding macOS Campaign"
+    url: "/posts/clickfix-etherhiding-macos/"
+    date: "Sep 2026"
+    summary: "Reconstructed 129 days of on-chain command-and-control rotation history for a macOS campaign, and documented an unreported delivery vector using compromised legitimate sites and 3 unpublished indicators."
+  - title: "etherhiding-tools"
+    url: "https://github.com/bugrasahinoglu/etherhiding-tools"
+    date: "Sep 2026"
+    summary: "Scripts for reading C2 addresses and rotation history out of EtherHiding smart contracts."
+
+certifications:
+  - code: "eWPTX"
+    name: "Web Application Penetration Tester eXtreme"
+    issuer: "INE Security"
+    year: 2026
+    url: "https://certs.ine.com/f791db36-b6b8-4392-8fb3-71a4057a6db8"
+  - code: "eWPT"
+    name: "Web Application Penetration Tester"
+    issuer: "INE Security"
+    year: 2025
+    url: "https://certs.ine.com/e29a5c5a-5008-43f4-b746-6cabfc24d055"
+  - code: "eCDFP"
+    name: "Certified Digital Forensics Professional"
+    issuer: "INE Security"
+    year: 2024
+    url: "https://certs.ine.com/e7f175a8-1b34-4d90-b7e7-7c808c57c762"
+  - code: "eCTHPv2"
+    name: "Certified Threat Hunting Professional"
+    issuer: "INE Security"
+    year: 2023
+    url: "https://certs.ine.com/1a0f584c-3692-404c-94fb-abf582e3d6e9"
+
+skills:
+  - group: "Security"
+    items: ["Incident response", "Threat hunting", "Detection engineering", "MITRE ATT&CK"]
+  - group: "Tools"
+    items: ["Splunk", "Cortex XSOAR", "Cortex XDR", "Carbon Black EDR", "Vectra NDR", "PowerShell"]
+  - group: "Forensics"
+    items: ["Volatility", "Autopsy", "FTK", "Wireshark", "REMnux", "Windows internals", "macOS incident analysis"]
+
+education:
+  - school: "Namık Kemal University"
+    degree: "B.Sc. in Electronics and Communication Engineering"
+    period: "2015 – 2019"
+
+languages:
+  - name: "Turkish"
+    level: "Native"
+  - name: "English"
+    level: "Professional working proficiency (TOEFL iBT 89/120)"
+  - name: "Spanish"
+    level: "B1"

@@ -45,6 +45,10 @@ menu:
       name: About
       url: /about/
       weight: 20
+    - identifier: cv
+      name: CV
+      url: /cv/
+      weight: 22
     - identifier: tags
       name: Tags
       url: /tags/
