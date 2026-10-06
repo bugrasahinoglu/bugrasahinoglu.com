@@ -1,0 +1,19 @@
+{{- /* Override of PaperMod's edit_post: instead of a GitHub edit link, opens a
+       pre-filled email ("Suggestion - <title>", with the post URL in the body).
+       editPost.URL is the mailto: address; editPost.Text the button label. */ -}}
+{{- if and (.Param "editPost.URL") (not (.Param "editPost.disabled")) -}}
+    {{- $subject := printf "Suggestion - %s" .Title -}}
+    {{- $body := printf "Post: %s\n\n" .Permalink -}}
+    {{- /* urlquery encodes spaces as "+", which mail clients show literally. */ -}}
+    {{- $q := printf "subject=%s&body=%s" (replace (urlquery $subject) "+" "%20") (replace (urlquery $body) "+" "%20") -}}
+    {{- $href := printf "%s?%s" (.Param "editPost.URL") $q -}}
+    {{- $text := .Param "editPost.Text" | default (i18n "edit_post") -}}
+    <a class="suggest-correction" href="{{ $href | safeURL }}">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M12 20h9" />
+            <path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4Z" />
+        </svg>
+        {{- $text -}}
+    </a>
+{{- end }}

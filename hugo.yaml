@@ -25,9 +25,9 @@ params:
   ShowFullTextinRSS: true
   ShowRssButtonInSectionTermList: true
   editPost:
-    URL: "https://github.com/bugrasahinoglu/bugrasahinoglu.com/edit/main/content"
+    # Rendered by layouts/_partials/edit_post.html as a pre-filled email.
+    URL: "mailto:mehmet@bugrasahinoglu.com"
     Text: "Suggest a correction"
-    appendFilePath: true
   profileMode:
     enabled: true
     title: "Mehmet Buğra Şahinoğlu"

@@ -136,3 +136,26 @@
 .post-content img {
   height: auto;
 }
+
+/* ---- Suggest a correction (layouts/_partials/edit_post.html) ---- */
+.post-meta a.suggest-correction {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  margin-inline-start: 10px;
+  padding: 1px 10px;
+  border: 1px solid var(--accent);
+  border-radius: 999px;
+  color: var(--accent);
+  font-size: 0.9em;
+  white-space: nowrap;
+  text-decoration: none;
+}
+.post-meta a.suggest-correction svg {
+  width: 13px;
+  height: 13px;
+}
+.post-meta a.suggest-correction:hover {
+  background: var(--accent);
+  color: var(--theme);
+}
