@@ -1,0 +1,37 @@
+{{- /* Override of PaperMod's render-image: PNG/JPEG page resources are converted
+       to WebP (capped at 1440px wide, 2x the 720px content column) and get explicit
+       width/height so the page does not shift while images load. */ -}}
+{{- $u := urls.Parse .Destination -}}
+{{- $src := $u.String -}}
+{{- $size := dict -}}
+{{- if not $u.IsAbs -}}
+  {{- $path := strings.TrimPrefix "./" $u.Path }}
+  {{- with or (.PageInner.Resources.Get $path) (resources.Get $path) -}}
+    {{- $img := . -}}
+    {{- if in (slice "png" "jpeg") .MediaType.SubType -}}
+      {{- /* PNGs are screenshots and charts: lossless, since lossy WebP
+             smears coloured text. JPEGs are photos: lossy is fine. */ -}}
+      {{- $opts := cond (eq .MediaType.SubType "png") "webp lossless" "webp q85 photo" -}}
+      {{- if gt .Width 1440 -}}
+        {{- $opts = printf "resize 1440x %s" $opts -}}
+      {{- end -}}
+      {{- $img = .Process $opts -}}
+      {{- $size = dict "width" (string $img.Width) "height" (string $img.Height) -}}
+    {{- end -}}
+    {{- $src = $img.RelPermalink -}}
+    {{- with $u.RawQuery -}}
+      {{- $src = printf "%s?%s" $src . -}}
+    {{- end -}}
+    {{- with $u.Fragment -}}
+      {{- $src = printf "%s#%s" $src . -}}
+    {{- end -}}
+  {{- end -}}
+{{- end -}}
+{{- $attributes := merge .Attributes $size (dict "alt" .Text "src" $src "title" (.Title | transform.HTMLEscape) "loading" "lazy" "decoding" "async") -}}
+<img
+  {{- range $k, $v := $attributes -}}
+    {{- if $v -}}
+      {{- printf " %s=%q" $k $v | safeHTMLAttr -}}
+    {{- end -}}
+  {{- end -}}>
+{{- /**/ -}}

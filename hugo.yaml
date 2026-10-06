@@ -3,6 +3,8 @@ locale: "en-us"
 title: "Mehmet Buğra Şahinoğlu"
 theme: "PaperMod"
 enableRobotsTXT: true
+# Keep taxonomy terms exactly as written (e.g. "macOS", not "MacOS").
+titleCaseStyle: none
 
 params:
   description: "Notes on incident response, threat hunting, and detection engineering."
@@ -12,12 +14,20 @@ params:
     favicon16x16: "/favicon-16x16.png"
     favicon32x32: "/favicon-32x32.png"
     apple_touch_icon: "/apple-touch-icon.png"
+    safari_pinned_tab: "/safari-pinned-tab.svg"
+    theme_color: "#16181d"
   images: ["/og-image.png"]
   defaultTheme: auto
   ShowReadingTime: true
   ShowCodeCopyButtons: true
   ShowBreadCrumbs: true
   ShowPostNavLinks: true
+  ShowFullTextinRSS: true
+  ShowRssButtonInSectionTermList: true
+  editPost:
+    URL: "https://github.com/bugrasahinoglu/bugrasahinoglu.com/edit/main/content"
+    Text: "Suggest a correction"
+    appendFilePath: true
   profileMode:
     enabled: true
     title: "Mehmet Buğra Şahinoğlu"
@@ -34,6 +44,8 @@ params:
       url: "https://linkedin.com/in/mehmetbugrasahinoglu"
     - name: email
       url: "mailto:mehmet@bugrasahinoglu.com"
+    - name: rss
+      url: "/index.xml"
 
 menu:
   main:
@@ -41,10 +53,6 @@ menu:
       name: Posts
       url: /posts/
       weight: 10
-    - identifier: categories
-      name: Categories
-      url: /categories/
-      weight: 15
     - identifier: about
       name: About
       url: /about/
@@ -53,10 +61,6 @@ menu:
       name: CV
       url: /cv/
       weight: 22
-    - identifier: tags
-      name: Tags
-      url: /tags/
-      weight: 25
 
 markup:
   highlight:

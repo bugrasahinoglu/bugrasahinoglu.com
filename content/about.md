@@ -2,6 +2,9 @@
 date: '2026-09-03T15:25:00+03:00'
 draft: false
 title: 'About'
+hiddenInRss: true
+editPost:
+  disabled: true
 ---
 
 I work in cybersecurity, focusing on incident response, threat hunting, and detection engineering.

@@ -130,3 +130,9 @@
 @media (min-width: 601px) {
   .cv-highlights li, .cv-pub p { text-align: justify; }
 }
+
+/* ---- Post images ---- */
+/* render-image.html sets width/height; keep the aspect ratio when max-width shrinks them. */
+.post-content img {
+  height: auto;
+}

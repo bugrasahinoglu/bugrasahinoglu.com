@@ -6,6 +6,7 @@ lang: "en"
 layout: cv
 description: "Mehmet Buğra Şahinoğlu - Senior Cybersecurity Analyst. Incident response, digital forensics, threat hunting and detection engineering."
 ShowBreadCrumbs: false
+hiddenInRss: true
 ---
 
 <!-- Content lives in data/cv.yaml and is rendered by layouts/cv.html. -->
