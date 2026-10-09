@@ -1,0 +1,79 @@
+# Weekly check of external links (exclusions and rules in .github/lychee-external.toml).
+# Keeps a single "Broken external links" issue open while anything is broken
+# and closes it once everything passes again.
+name: External links
+
+on:
+  schedule:
+    - cron: "0 6 * * 1" # Monday 06:00 UTC = 09:00 Istanbul
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+env:
+  # Keep in sync with build.yml.
+  HUGO_VERSION: 0.165.0
+  ISSUE_TITLE: Broken external links
+
+jobs:
+  links:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    permissions:
+      contents: read
+      issues: write
+    steps:
+      - name: Checkout
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          submodules: recursive
+          persist-credentials: false
+
+      - name: Install Hugo (official release, checksum verified)
+        run: |
+          base="https://github.com/gohugoio/hugo/releases/download/v${HUGO_VERSION}"
+          tarball="hugo_extended_${HUGO_VERSION}_linux-amd64.tar.gz"
+          cd "$RUNNER_TEMP"
+          curl -fsSLO "$base/$tarball"
+          curl -fsSLO "$base/hugo_${HUGO_VERSION}_checksums.txt"
+          grep " ${tarball}\$" "hugo_${HUGO_VERSION}_checksums.txt" | sha256sum -c -
+          mkdir -p hugo && tar -xzf "$tarball" -C hugo
+          echo "$RUNNER_TEMP/hugo" >> "$GITHUB_PATH"
+
+      - name: Build
+        run: hugo --gc --minify
+
+      - name: Check external links
+        id: lychee
+        uses: lycheeverse/lychee-action@e7477775783ea5526144ba13e8db5eec57747ce8 # v2.9.0
+        with:
+          args: --no-progress --config .github/lychee-external.toml 'public/**/*.html'
+          output: lychee/out.md
+          fail: false
+
+      - name: Open, update or close the tracking issue
+        env:
+          GH_TOKEN: ${{ github.token }}
+          EXIT_CODE: ${{ steps.lychee.outputs.exit_code }}
+        run: |
+          number=$(gh issue list --repo "$GITHUB_REPOSITORY" --state open \
+            --search "in:title \"$ISSUE_TITLE\"" --json number,title \
+            --jq "map(select(.title == \"$ISSUE_TITLE\")) | .[0].number // empty")
+          run_url="$GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID"
+
+          if [ "$EXIT_CODE" = "0" ]; then
+            if [ -n "$number" ]; then
+              gh issue close "$number" --repo "$GITHUB_REPOSITORY" \
+                --comment "All external links pass again ($run_url)."
+            fi
+            exit 0
+          fi
+
+          { echo "Weekly external link check found problems ($run_url)."; echo; cat lychee/out.md; } > body.md
+          if [ -n "$number" ]; then
+            gh issue edit "$number" --repo "$GITHUB_REPOSITORY" --body-file body.md
+            gh issue comment "$number" --repo "$GITHUB_REPOSITORY" --body "Still failing: $run_url"
+          else
+            gh issue create --repo "$GITHUB_REPOSITORY" --title "$ISSUE_TITLE" --body-file body.md
+          fi

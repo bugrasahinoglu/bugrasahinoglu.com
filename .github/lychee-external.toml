@@ -1,0 +1,36 @@
+# External link check config, used only by .github/workflows/links.yml (weekly).
+# Kept out of the repo root on purpose: lychee auto-loads ./lychee.toml, which
+# would leak base_url/exclusions into the internal check in build.yml.
+
+max_retries = 3
+retry_wait_time = 5
+timeout = 30
+max_concurrency = 8
+accept = ["200..=299", "429"]
+user_agent = "Mozilla/5.0 (compatible; link-check; +https://bugrasahinoglu.com/)"
+
+# Resolve root-relative links ("/tags/") to the site URL so the own-site
+# exclusion below catches them.
+base_url = "https://bugrasahinoglu.com/"
+
+exclude = [
+  # Own site: covered by the internal check in build.yml.
+  '^https://bugrasahinoglu\.com/',
+  '^https://mta-sts\.bugrasahinoglu\.com/',
+
+  # Block automated clients, so they always "fail".
+  '^https://(www\.)?(x|twitter)\.com/',
+  '^https://([a-z]+\.)?linkedin\.com/',
+
+  # Defanged IOCs are not links and must never be requested.
+  '\[\.\]',
+  '^hxxps?://',
+
+  # Infrastructure referenced as part of malware behaviour. CI never sends
+  # requests to anything a post describes as attacker-controlled or abused.
+  # Add hosts here when a post cites one as a live link.
+  '^https://polygon\.drpc\.org',
+]
+
+exclude_all_private = true
+include_mail = false

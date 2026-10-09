@@ -1,0 +1,21 @@
+version: 2
+updates:
+  # Keeps the SHA-pinned actions in .github/workflows current.
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: monthly
+    groups:
+      actions:
+        patterns: ["*"]
+    commit-message:
+      prefix: "ci"
+
+  # PaperMod theme (themes/PaperMod submodule). The Build workflow and a
+  # Cloudflare Pages preview run on each PR, so check the preview before merging.
+  - package-ecosystem: gitsubmodule
+    directory: /
+    schedule:
+      interval: monthly
+    commit-message:
+      prefix: "theme"
