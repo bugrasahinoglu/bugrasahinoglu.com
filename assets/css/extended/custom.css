@@ -43,6 +43,7 @@
   border-left: 4px solid;
 }
 .note-box p:last-child { margin-bottom: 0; }
+.note-box > strong:first-child { display: block; margin-bottom: 4px; }
 
 .note-info    { border-color: var(--accent); background: rgba(77, 184, 168, .08); }
 .note-warning { border-color: #f59e0b;       background: rgba(245, 158, 11, .08); }

@@ -248,7 +248,7 @@ tiny, four functions, no source published on Polygonscan, though it resolves as
 Reading it takes one command:
 
 ```
-curl -s https://polygon.drpc.org -X POST \
+curl -s https://1rpc.io/matic -X POST \
   -H 'Content-Type: application/json' \
   --data '{"jsonrpc":"2.0","method":"eth_call","params":[{"to":"0xA3a603F8a454a9c905b4c579Bb72628F7C15C2A0","data":"0x2686ecea"},"latest"],"id":1}'
 ```
@@ -256,6 +256,16 @@ curl -s https://polygon.drpc.org -X POST \
 `eth_call` is a read-only simulation. No wallet, no gas, no signature, no record on
 chain. The result is an ABI-encoded string: the second 32-byte word is its length, the
 data follows. Decode it and you have today's C2.
+
+{{< note type="info" title="Update, 26 November 2026" >}}
+From late October 2026, public Polygon RPC providers started refusing calls to this
+contract: dRPC rejects them on its public endpoint, Tenderly answers "forbidden" for the
+address, and PublicNode returns a rate-limit error for it on every attempt. The command
+originally used dRPC. It now uses 1RPC, which still answered on the date above.
+`read_contract.py` in the tools repository linked below falls back to two other public
+endpoints. If all of them stop, any Polygon node you run, or a provider you hold an
+account with, returns the same value.
+{{< /note >}}
 
 Recovering the full history is the same idea applied to the setter calls, decoding each
 transaction's input data instead of the current value.
