@@ -260,10 +260,10 @@ data follows. Decode it and you have today's C2.
 {{< note type="info" title="Update, 26 November 2026" >}}
 From late October 2026, public Polygon RPC providers started refusing calls to this
 contract: dRPC rejects them on its public endpoint, Tenderly answers "forbidden" for the
-address, and PublicNode returns a rate-limit error for it on every attempt. The command
+address and PublicNode returns a rate-limit error for it on every attempt. The command
 originally used dRPC. It now uses 1RPC, which still answered on the date above.
 `read_contract.py` in the tools repository linked below falls back to two other public
-endpoints. If all of them stop, any Polygon node you run, or a provider you hold an
+endpoints. If all of them stop, any Polygon node you run or a provider you hold an
 account with, returns the same value.
 {{< /note >}}
 
