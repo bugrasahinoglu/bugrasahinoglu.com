@@ -264,7 +264,7 @@ address and PublicNode returns a rate-limit error for it on every attempt. The c
 originally used dRPC. It now uses 1RPC, which still answered on the date above.
 `read_contract.py` in the tools repository linked below falls back to two other public
 endpoints. If all of them stop, any Polygon node you run or a provider you hold an
-account with, returns the same value.
+account with returns the same value.
 {{< /note >}}
 
 Recovering the full history is the same idea applied to the setter calls, decoding each
